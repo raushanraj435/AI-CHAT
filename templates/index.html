@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Assistant</title>
+
+    <!-- Markdown + syntax highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/styles/github-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/lib/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-shell">
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-top">
+                <button class="new-chat-btn" id="newChatBtn">＋ New chat</button>
+                <button class="icon-btn mobile-close" id="closeSidebarBtn" aria-label="Close sidebar">×</button>
+            </div>
+
+            <div class="history-title">Conversations</div>
+            <div class="conversation-list" id="conversationList"></div>
+
+            <div class="sidebar-bottom">
+                <button class="sidebar-action" id="clearAllBtn">🗑️ Clear all chats</button>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open sidebar">☰</button>
+                    <div>
+                        <div class="brand">AI CHAT</div>
+                        <div class="status"><span class="status-dot"></span> Online</div>
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="icon-btn" id="themeBtn" aria-label="Toggle dark/light mode">🌙</button>
+                    <button class="icon-btn" id="clearChatBtn" aria-label="Clear current chat">🗑️</button>
+                </div>
+            </header>
+
+            <section class="chat-area" id="chatArea">
+                <div class="welcome" id="welcome">
+                    <div class="welcome-icon">✦</div>
+                    <h1>How can I help you?</h1>
+                    <p>Ask anything. Get explanations, code, ideas, and more.</p>
+
+                    <div class="suggestions">
+                        <button data-prompt="Explain C++ OOP in simple language">Explain C++ OOP</button>
+                        <button data-prompt="Give me a beginner-friendly Java roadmap">Java roadmap</button>
+                        <button data-prompt="Write a C++ solution for Two Sum and explain it">Solve a coding problem</button>
+                        <button data-prompt="Explain REST API with a simple example">Explain REST API</button>
+                    </div>
+                </div>
+
+                <div class="messages" id="messages"></div>
+            </section>
+
+            <div class="composer-wrap">
+                <form class="composer" id="chatForm">
+                    <textarea id="messageInput"
+                              rows="1"
+                              placeholder="Message AI CHAT ASSISTANT..."
+                              autocomplete="off"></textarea>
+                    <button class="send-btn" id="sendBtn" type="submit" aria-label="Send message">
+                        <span>➤</span>
+                    </button>
+                </form>
+                <div class="composer-hint">Enter to send • Shift + Enter for a new line</div>
+            </div>
+        </main>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
