@@ -1,4 +1,4 @@
-# Gemini AI Chat Assistant
+# AI Chat Assistant
 
 A full-stack Gemini chatbot built with Flask, HTML, CSS, JavaScript, and the Google GenAI SDK.
 
